@@ -1,8 +1,9 @@
 body {
-	background: linear-gradient(to bottom, #111, #333);
+	background: #000;
 }
 
 .reveal {
+	color: #fff;
 	font-size: 60px;
 
 	h1 { font-size: 2em; }
@@ -12,6 +13,7 @@ body {
 
 	h1, h2, h3, h4, h5, h6, ol, ul, p, table, pre {
 		margin-bottom: 2rem;
+		color: #fff;
 
 		html.inverted & {
 			color: #FFF;
@@ -19,11 +21,23 @@ body {
 		}
 	}
 
+	a:not(.image) {
+		color: rgba(255, 255, 255, 0.8);
+	}
+
+	pre {
+		box-shadow: none;
+	}
+
+	code {
+		background-color: #3F3F3F;
+	}
+
 	pre code {
-		max-height: 700px;
+		max-height: 90vh;
 		filter: none;
 		text-shadow: none;
-		box-shadow: inset 0 0 0 2px #666, 0 0 4px 1px rgba(0,0,0,.5);
+		box-shadow: inset 0 0 0 2px #666;
 	}
 
 	html.faded & .backgrounds {
@@ -49,11 +63,6 @@ body {
 
 	  &[src$=".jpg"] {
 		filter: drop-shadow(0 0 1px #CCC) drop-shadow(0 0 10px #FFF);
-	  }
-
-	  &[alt="PHP.RUHR 2015"] {
-		filter: drop-shadow(0 0 10px #000);
-		opacity: 0.75;
 	  }
 	}
 
@@ -153,5 +162,17 @@ body {
 		-ms-column-count: 2;
 		-o-column-count: 2;
 		column-count: 2;
+	}
+
+	.slide-background {
+			&:nth-child(3n+1) {
+				background-color: #1f61a8;
+			}
+			&:nth-child(3n+2) {
+				background-color: #088e4c;
+			}
+			&:nth-child(3n+3) {
+				background-color: #9a3e48;
+			}
 	}
 }
