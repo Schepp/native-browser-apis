@@ -14,8 +14,8 @@
     <li class="fragment">mapped to W3C and IE DOM API<span class="fragment"> (especially event handling)</span></li>
     <li class="fragment">fixed (IE 6 & 7) browser bugs</li>
     <li class="fragment">offered unique CSS selector style DOM selection & traversal API (Sizzle)</li>
-    <li class="fragment">offered convinient API with [method chaining + method pattern](https://www.smashingmagazine.com/2012/10/designing-javascript-apis-usability/)</li>
-    <li class="fragment">offered convinient API for animations</li>
+    <li class="fragment">offered convenient API with [method chaining + method pattern](https://www.smashingmagazine.com/2012/10/designing-javascript-apis-usability/)</li>
+    <li class="fragment">offered convenient API for animations</li>
 </ul>
 ---
 # The advantages nowadays?
@@ -24,8 +24,8 @@
     <li><del>maps to W3C and IE DOM API</del></li>
     <li>fixes <del>(IE 6 & 7) browser bugs</del> <span class="fragment">mobile browser bugs</span></li>
     <li>offers <del>unique</del> CSS selector style DOM selection & traversal API</del></li>
-    <li>still offers convinient API with [method chaining + method pattern](https://www.smashingmagazine.com/2012/10/designing-javascript-apis-usability/)</li>
-    <li>still offers convinient API for animations</li>
+    <li>still offers convenient API with [method chaining + method pattern](https://www.smashingmagazine.com/2012/10/designing-javascript-apis-usability/)</li>
+    <li>still offers convenient API for animations</li>
     <li class="fragment">comes with a huge ecosystem of plugins</li>
 </ul>
 ---
@@ -118,13 +118,15 @@ Remember:
 </table>
 
 <p class="fragment">= 375 ms parse time on a Motorola Moto G4<p>
+<p class="fragment">~ <a href="http://carlos.bueno.org/2010/02/measuring-javascript-parse-and-load.html#minifi">half the time for the minified version</a><p>
 ---
-Also, native code is always faster than interpreted / just in time compiled code.
+<blockquote><p lang="en" dir="ltr">The default global baseline is a ~$200 Android device on a 400Kbps link with a 400ms round-trip-time (“RTT”). This translates into a budget of ~130-170KB of critical-path resources, depending on composition — the more JS you include, the smaller the bundle must be.</p>&mdash; Alex Russel <a href="https://infrequently.org/2017/10/can-you-afford-it-real-world-web-performance-budgets/">22. Oktober 2017</a></blockquote>
+---
+Also, native code is always faster than interpreted / just in time compiled code!
 ---
 # A lot happened since 2006
 
 <ul>
-    <li class="fragment">An idiot got president!</li>
     <li class="fragment">IE 7<span class="fragment">, 8</span><span class="fragment"> and 9 phased out</span></li>
     <li class="fragment">Modern IEs like 10, 11 and Edge came</li>
     <li class="fragment">Android browser came and went away again<span class="fragment"> (phew!)</span></li>
@@ -187,25 +189,25 @@ const arr = Array.from(document.querySelectorAll(selector));
     </tr>
     </thead>
     <tbody>
-    <tr>
-        <td><span class="fragment">`.parent()`</span></td>
-        <td><span class="fragment">`.parentNode`</span></td>
+    <tr class="fragment">
+        <td>`.parent()`</td>
+        <td><span>`.parentNode`</td>
     </tr>
-    <tr>
-        <td><span class="fragment">`.prev()`</span></td>
-        <td><span class="fragment">`.previousSibling`</span></td>
+    <tr class="fragment">
+        <td><span>`.prev()`</td>
+        <td>`.previousSibling`</td>
     </tr>
-    <tr>
-        <td><span class="fragment">`.next()`</span></td>
-        <td><span class="fragment">`.nextSibling`</span></td>
+    <tr class="fragment">
+        <td>`.next()`</td>
+        <td>`.nextSibling`</td>
     </tr>
-    <tr>
-        <td><span class="fragment">`.siblings(selector)`</span></td>
-        <td><span class="fragment">`$(selector, elem.parentNode)`</span></td>
+    <tr class="fragment">
+        <td>`.siblings(selector)`</td>
+        <td>`$(selector, elem.parentNode)`</td>
     </tr>
-    <tr>
-        <td><span class="fragment">`.closest(selector)`</span></td>
-        <td><span class="fragment">`.closest(selector)`</span></td>
+    <tr class="fragment">
+        <td>`.closest(selector)`</td>
+        <td>`.closest(selector)`</td>
     </tr>
     </tbody>
 </table>
@@ -220,25 +222,25 @@ const arr = Array.from(document.querySelectorAll(selector));
     </tr>
     </thead>
     <tbody>
-    <tr>
-        <td><span class="fragment">`.append()`</span></td>
-        <td><span class="fragment">`.appendChild()`</span></td>
+    <tr class="fragment">
+        <td>`.append()`</td>
+        <td>`.appendChild()`</td>
     </tr>
-    <tr>
-        <td><span class="fragment">`.prepend()`</span></td>
-        <td><span class="fragment">`.prepend()` (needs [Polyfill](https://developer.mozilla.org/de/docs/Web/API/ParentNode/prepend#Polyfill))</span></td>
+    <tr class="fragment">
+        <td>`.prepend()`</td>
+        <td>`.prepend()` (needs [Polyfill](https://developer.mozilla.org/de/docs/Web/API/ParentNode/prepend#Polyfill))</td>
     </tr>
-    <tr>
-        <td><span class="fragment">`.insertBefore()`</span></td>
-        <td><span class="fragment">`.before()`</span></td>
+    <tr class="fragment">
+        <td>`.insertBefore()`</td>
+        <td>`.before()`</td>
     </tr>
-    <tr>
-        <td><span class="fragment">`.insertAfter()`</span></td>
-        <td><span class="fragment">`.after()`</span></td>
+    <tr class="fragment">
+        <td>`.insertAfter()`</td>
+        <td>`.after()`</td>
     </tr>
-    <tr>
-        <td><span class="fragment">`.replaceWith()`</span></td>
-        <td><span class="fragment">`.replaceWith()` (needs [Polyfill](https://developer.mozilla.org/en-US/docs/Web/API/ChildNode/replaceWith#Polyfill))</span></td>
+    <tr class="fragment">
+        <td>`.replaceWith()`</td>
+        <td>`.replaceWith()` (needs [Polyfill](https://developer.mozilla.org/en-US/docs/Web/API/ChildNode/replaceWith#Polyfill))</td>
     </tr>
     </tbody>
 </table>
@@ -253,7 +255,7 @@ elem.classList.toggle();
 ---
 # Setting CSS Styles
 
-Add multiple styles in one go:
+Adding multiple styles in one go:
 
 ```
 Object.assign(elem.style, { 
@@ -262,7 +264,7 @@ Object.assign(elem.style, {
 });
 ```
 
-Remove multiple styles in one go:
+Removing multiple styles in one go:
 
 ```
 Object.assign(elem.style, { 
@@ -405,7 +407,7 @@ fetch(url, options).then(function(response) {
 
 ![Smooth Scroll Demo](https://res.cloudinary.com/css-tricks/image/upload/c_scale,w_900,f_auto,q_auto/v1492202937/alamanac-css-scroll-behavior-smooth_tenf1s.gif)
 
-<span class="fragment">Works in Firefox, and in Chrome behind flags</span> 
+<span class="fragment">Works in Firefox, and in Chrome</span> 
 ---
 # CSS Font Loading API
 

@@ -27,6 +27,7 @@ body {
     background-color: #3F3F3F; }
   .reveal pre code {
     max-height: 90vh;
+    padding: 20px;
     -webkit-filter: none;
             filter: none;
     text-shadow: none;
