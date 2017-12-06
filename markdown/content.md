@@ -133,7 +133,7 @@ Also, native code is always faster than interpreted / just in time compiled code
     <li class="fragment">W3C Document Object Model Level 3</li>
     <li class="fragment">W3C Selectors API Level 1 & 2 came to be</li>
     <li class="fragment">CSS 3</li>
-    <li class="fragment">ES5<span class="fragment">, ES2015</span><span class="fragment"> and ES2016</span></li>
+    <li class="fragment">ES5<span class="fragment">, ES2015</span><span class="fragment">, ES2016</span><span class="fragment"> and ES2017</span></li>
     <li class="fragment">And many more standards were established since</li>
 </ul>
 ---
@@ -162,7 +162,7 @@ links.forEach(...);
 ---
 # DOM Selection and Traversal
 
-Ways to convert NodeLists into iteratable Arrays:
+Ways to convert NodeLists into iterable arrays:
 
 ES5:
 ```
@@ -245,12 +245,13 @@ const arr = Array.from(document.querySelectorAll(selector));
     </tbody>
 </table>
 ---
-# Setting CSS Classes
+# Working with CSS Classes
 
 ```
-elem.classList.add();
-elem.classList.remove();
-elem.classList.toggle();
+elem.classList.add('hidden');
+elem.classList.remove('hidden');
+elem.classList.toggle('hidden');
+elem.classList.contains('hidden');
 ```
 ---
 # Setting CSS Styles
@@ -278,15 +279,15 @@ Object.assign(elem.style, {
 Use the `.matches()` method:
 
 ```
-function delegate(eventName, selector, callback) {
-    document.addEventListener(eventName, function(e) {
+const delegate = (eventName, selector, callback) => {
+    document.addEventListener(eventName, (e) => {
         if (e.target.matches(selector)) {
             callback(e);
         }
     }, false);
 }
 
-delegate('click', 'a[href^="#"]', function(e) {
+delegate('click', 'a', (e) => {
     console.log(e.target.href);
 });
 ```
@@ -301,16 +302,16 @@ What to do with events that do not bubble up?
 Catch the event in the capture phase and [it will magically work](https://www.quirksmode.org/blog/archives/2008/04/delegating_the.html)! 
 
 ```
-function delegate(eventName, selector, callback) {
-    document.addEventListener(eventName, function(e) {
+const delegate = (eventName, selector, callback) => {
+    document.addEventListener(eventName, (e) => {
         if (e.target.matches(selector)) {
             callback(e);
         }
-    }, true);
+    }, true); // <- true!
 }
 
-delegate('click', 'a[href^="#"]', function(e) {
-    console.log(e.target.href);
+delegate('blur', 'input', (e) => {
+    console.log(e.target.value);
 });
 ```
 ---
@@ -338,7 +339,7 @@ elem.animate(
 # Ajax
 
 ```
-fetch(url, options).then(function(response) {
+fetch(url, options).then((response) => {
   ... 
 });
 ```
@@ -347,7 +348,7 @@ fetch(url, options).then(function(response) {
 ---
 # Working with Arrays lodash-Style
 
-<ul>
+<ul style="font-size: 0.8em">
     <li class="fragment">`.forEach()` (ES5)</li>
     <li class="fragment">`.filter()` (ES5)</li>
     <li class="fragment">`.map()` (ES5)</li>
@@ -438,12 +439,10 @@ Imagine, you want to lazy load images:
 ```
 ---
 ```
-function $(selector) {
-    return [].call(document.querySelectorAll(selector));
-} 
+const $ = selector => [...document.querySelectorAll(selector)]; 
 
-function callback(entries, observer) {
-    entries.forEach(function (entry) {
+const callback = (entries, observer) => {
+    entries.forEach((entry) => {
         if (entry.intersectionRatio > 0.1) {
             entry.target.src = entry.target.getAttribute('data-src');
             observer.unobserve(entry.target);
@@ -451,13 +450,10 @@ function callback(entries, observer) {
     });
 }
 
-var observer = new IntersectionObserver(callback, {
-    root: null,
-    threshold: 0.1
-});
+var observer = new IntersectionObserver(callback, { threshold: 0.1 });
 
-document.addEventListener('DOMContentLoaded', function () {
-    $('img[data-src]').forEach(function (elem) { observer.observe(elem); });
+document.addEventListener('DOMContentLoaded', () => {
+    $('img[data-src]').forEach((elem) => { observer.observe(elem); });
 });
 ```
 ---

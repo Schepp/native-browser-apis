@@ -1,0 +1,14 @@
+{
+  "name": "Native Browsr APIs",
+  "description": "A talk on how to leverage the native browser APIs",
+  "main": "index.html",
+  "authors": [
+    "Christian Schaefer <schaepp@gmx.de>"
+  ],
+  "license": "MIT",
+  "homepage": "https://schepp.github.io/native-browser-apis/",
+  "private": true,
+  "dependencies": {
+    "reveal.js": "~2.6.1"
+  }
+}

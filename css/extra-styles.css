@@ -52,7 +52,7 @@ body {
       -webkit-filter: drop-shadow(0 0 1px #CCC) drop-shadow(0 0 10px #FFF);
               filter: drop-shadow(0 0 1px #CCC) drop-shadow(0 0 10px #FFF); }
   .reveal li {
-    margin-bottom: 1rem; }
+    margin-bottom: 0.25em; }
   .reveal table {
     table-layout: fixed;
     width: 100%;
