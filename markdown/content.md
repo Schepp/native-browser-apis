@@ -122,7 +122,7 @@ Remember:
 <p class="fragment">= 375 ms parse time on a Motorola Moto G4<p>
 <p class="fragment">~ <a href="http://carlos.bueno.org/2010/02/measuring-javascript-parse-and-load.html#minifi">half the time for the minified version</a><p>
 ---
-<blockquote><p lang="en" dir="ltr">The default global baseline is a ~$200 Android device on a 400Kbps link with a 400ms round-trip-time (“RTT”). This translates into a budget of ~130-170KB of critical-path resources, depending on composition — the more JS you include, the smaller the bundle must be.</p>&mdash; Alex Russel <a href="https://infrequently.org/2017/10/can-you-afford-it-real-world-web-performance-budgets/">22. Oktober 2017</a></blockquote>
+<blockquote><p lang="en" dir="ltr">The default global baseline is a ~$200 Android device on a 400Kbps link with a 400ms round-trip-time (“RTT”). This translates into a budget of ~130-170KB of critical-path resources, depending on composition — the more JS you include, the smaller the bundle must be.</p>&mdash; Alex Russell <a href="https://infrequently.org/2017/10/can-you-afford-it-real-world-web-performance-budgets/">22. Oktober 2017</a></blockquote>
 ---
 Also, native code is always faster than interpreted / just in time compiled code!
 ---
