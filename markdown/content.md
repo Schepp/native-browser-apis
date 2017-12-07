@@ -16,6 +16,7 @@
     <li class="fragment">offered unique CSS selector style DOM selection & traversal API (Sizzle)</li>
     <li class="fragment">offered convenient API with [method chaining + method pattern](https://www.smashingmagazine.com/2012/10/designing-javascript-apis-usability/)</li>
     <li class="fragment">offered convenient API for animations</li>
+    <li class="fragment">.</li>
 </ul>
 ---
 # The advantages nowadays?
@@ -27,6 +28,7 @@
     <li>still offers convenient API with [method chaining + method pattern](https://www.smashingmagazine.com/2012/10/designing-javascript-apis-usability/)</li>
     <li>still offers convenient API for animations</li>
     <li class="fragment">comes with a huge ecosystem of plugins</li>
+    <li class="fragment">.</li>
 </ul>
 ---
 # Any drawbacks?
@@ -86,7 +88,7 @@
 
 <blockquote class="twitter-tweet" data-lang="de"><p lang="en" dir="ltr">Images account for 63% of page weight (avg 687k) <a href="http://t.co/XPPhGE73">http://t.co/XPPhGE73</a> so: 1) a bit silly to whine over 30k of JS 2) going retina? use vector</p>&mdash; Paul Irish (@paul_irish) <a href="https://twitter.com/paul_irish/status/228815997438672896">27. Juli 2012</a></blockquote>
 ---
-<p>30 KB JavaScript? Who cares?!?</p>
+<p>You should</p>
 
 <blockquote class="twitter-tweet" data-lang="de"><p lang="en" dir="ltr"><a href="https://twitter.com/paul_irish">@paul_irish</a> OTOH, JS blocks rendering, so JS KB &quot;costs&quot; more than img KB in terms of perf</p>&mdash; Yoav Weiss (@yoavweiss) <a href="https://twitter.com/yoavweiss/status/228818180917833729">27. Juli 2012</a></blockquote>
 ---
@@ -135,6 +137,7 @@ Also, native code is always faster than interpreted / just in time compiled code
     <li class="fragment">CSS 3</li>
     <li class="fragment">ES5<span class="fragment">, ES2015</span><span class="fragment">, ES2016</span><span class="fragment"> and ES2017</span></li>
     <li class="fragment">And many more standards were established since</li>
+    <li class="fragment">.</li>
 </ul>
 ---
 # DOM Selection and Traversal
@@ -209,6 +212,9 @@ const arr = Array.from(document.querySelectorAll(selector));
         <td>`.closest(selector)`</td>
         <td>`.closest(selector)`</td>
     </tr>
+    <tr class="fragment">
+        <td colspan="2">.</td>
+    </tr>
     </tbody>
 </table>
 ---
@@ -241,6 +247,9 @@ const arr = Array.from(document.querySelectorAll(selector));
     <tr class="fragment">
         <td>`.replaceWith()`</td>
         <td>`.replaceWith()` (needs [Polyfill](https://developer.mozilla.org/en-US/docs/Web/API/ChildNode/replaceWith#Polyfill))</td>
+    </tr>
+    <tr class="fragment">
+        <td colspan="2">.</td>
     </tr>
     </tbody>
 </table>
@@ -360,6 +369,7 @@ fetch(url, options).then((response) => {
     <li class="fragment">`.entries()` (ES2015)</li>
     <li class="fragment">`.values()` (ES2015)</li>
     <li class="fragment">`.includes()` (ES2016)</li>
+    <li class="fragment">.</li>
 </ul>
 ---
 # Working with Objects
@@ -369,6 +379,7 @@ fetch(url, options).then((response) => {
     <li class="fragment">`.keys()` (ES2015)</li>
     <li class="fragment">`.entries()` (?)</li>
     <li class="fragment">`.values()` (?)</li>
+    <li class="fragment">.</li>
 </ul>
 ---
 # Building a slider with CSS Scroll Snap Points 
