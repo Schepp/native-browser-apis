@@ -33,6 +33,7 @@
 		<!--[if lt IE 9]>
 		<script src="bower_components/reveal.js/lib/js/html5shiv.js"></script>
 		<![endif]-->
+		<script src="https://platform.twitter.com/widgets.js"></script>
 	</head>
 
 	<body>
@@ -88,6 +89,26 @@
 				]
 			});
 
+            Reveal.addEventListener( 'slidechanged', function( event ) {
+                // event.previousSlide, event.currentSlide, event.indexh, event.indexv
+                var elem = event.currentSlide.querySelector('.twitter-tweet');
+                var link = Array.from(elem.querySelectorAll('a')).pop();
+                var id = link.href.replace(/\D/g, '');
+
+                if (window.twttr && elem) {
+                    window.twttr.widgets.createTweet(
+                        id,
+                        elem.parentElement,
+                        {
+                            align: 'center',
+							width: 920
+                        })
+                        .then(function (el) {
+                            elem.parentNode.removeChild(elem);
+                            console.log("Tweet displayed.")
+                        });
+				}
+            });
 		</script>
 
 	</body>

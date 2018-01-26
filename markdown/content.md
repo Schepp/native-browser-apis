@@ -4,9 +4,7 @@
 ---
 <!-- .slide: data-background="" data-state="inverted" -->
 
-# Happy [10th birthday, jQuery](https://johnresig.com/blog/10th-anniversary-of-jquery/)!
-
-<p class="fragment">(well, 11th, to be precise...)</p>
+# Happy [12th birthday, jQuery](https://johnresig.com/blog/10th-anniversary-of-jquery/)!
 ---
 # Why jQuery?
 
@@ -16,19 +14,19 @@
     <li class="fragment">offered unique CSS selector style DOM selection & traversal API (Sizzle)</li>
     <li class="fragment">offered convenient API with [method chaining + method pattern](https://www.smashingmagazine.com/2012/10/designing-javascript-apis-usability/)</li>
     <li class="fragment">offered convenient API for animations</li>
-    <li class="fragment">.</li>
+    <li class="fragment"><blink>_</blink></li>
 </ul>
 ---
 # The advantages nowadays?
 
 <ul>
-    <li><del>maps to W3C and IE DOM API</del></li>
-    <li>fixes <del>(IE 6 & 7) browser bugs</del> <span class="fragment">mobile browser bugs</span></li>
-    <li>offers <del>unique</del> CSS selector style DOM selection & traversal API</del></li>
-    <li>still offers convenient API with [method chaining + method pattern](https://www.smashingmagazine.com/2012/10/designing-javascript-apis-usability/)</li>
-    <li>still offers convenient API for animations</li>
+    <li class="fragment"><del>maps to W3C and IE DOM API</del></li>
+    <li class="fragment">fixes <del>(IE 6 & 7) browser bugs</del> <span class="fragment">mobile browser bugs</span></li>
+    <li class="fragment">offers <del>unique</del> CSS selector style DOM selection & traversal API</del></li>
+    <li class="fragment">still offers convenient API with [method chaining + method pattern](https://www.smashingmagazine.com/2012/10/designing-javascript-apis-usability/)</li>
+    <li class="fragment">still offers convenient API for animations</li>
     <li class="fragment">comes with a huge ecosystem of plugins</li>
-    <li class="fragment">.</li>
+    <li class="fragment"><blink>_</blink></li>
 </ul>
 ---
 # Any drawbacks?
@@ -95,8 +93,13 @@
 <p>Parse times of 1MB (uncompressed) JavaScript</p>
 
 ![Parse times of 1MB JavaScript](images/javascript-parse-times.jpg)
+---
+<p>Parse times of 1MB (uncompressed) JavaScript</p>
 
-<p class="fragment">(up to 6.5 seconds)</p>
+![Parse times of 1MB JavaScript](images/javascript-parse-times-moto-g4.jpg)
+
+<p>up to 1.5 seconds on a mainstream Motorola G4</p>
+<p class="fragment">and up to 6.5 seconds on lowend devices</p>
 ---
 Remember:
 
@@ -123,21 +126,23 @@ Remember:
 <p class="fragment">~ <a href="http://carlos.bueno.org/2010/02/measuring-javascript-parse-and-load.html#minifi">half the time for the minified version</a><p>
 ---
 <blockquote><p lang="en" dir="ltr">The default global baseline is a ~$200 Android device on a 400Kbps link with a 400ms round-trip-time (“RTT”). This translates into a budget of ~130-170KB of critical-path resources, depending on composition — the more JS you include, the smaller the bundle must be.</p>&mdash; Alex Russell <a href="https://infrequently.org/2017/10/can-you-afford-it-real-world-web-performance-budgets/">22. Oktober 2017</a></blockquote>
+
+<p class="fragment">Dokument + Stylesheet + Schriften + JavaScript <= 130/170 KB</p>
 ---
 Also, native code is always faster than interpreted / just in time compiled code!
 ---
 # A lot happened since 2006
 
 <ul>
-    <li class="fragment">IE 7<span class="fragment">, 8</span><span class="fragment"> and 9 phased out</span></li>
+    <li class="fragment">IE 7, 8 and 9 phased out</span></li>
     <li class="fragment">Modern IEs like 10, 11 and Edge came</li>
     <li class="fragment">Android browser came and went away again<span class="fragment"> (phew!)</span></li>
     <li class="fragment">W3C Document Object Model Level 3</li>
     <li class="fragment">W3C Selectors API Level 1 & 2 came to be</li>
     <li class="fragment">CSS 3</li>
-    <li class="fragment">ES5<span class="fragment">, ES2015</span><span class="fragment">, ES2016</span><span class="fragment"> and ES2017</span></li>
-    <li class="fragment">And many more standards were established since</li>
-    <li class="fragment">.</li>
+    <li class="fragment">ES5, ES2015, ES2016 and ES2017</li>
+    <li class="fragment">and many more standards were established since</li>
+    <li class="fragment"><blink>_</blink></li>
 </ul>
 ---
 # DOM Selection and Traversal
@@ -172,12 +177,13 @@ ES5:
 var arr = [].slice.call(document.querySelectorAll(selector));
 ```
 
-ES2015:
+ES2015 (a):
+
 ```
 const arr = [...document.querySelectorAll(selector)]
 ```
 
-ES2015:
+ES2015 (b):
 ```
 const arr = Array.from(document.querySelectorAll(selector));
 ```
@@ -213,7 +219,7 @@ const arr = Array.from(document.querySelectorAll(selector));
         <td>`.closest(selector)`</td>
     </tr>
     <tr class="fragment">
-        <td colspan="2">.</td>
+        <td colspan="2"><blink>_</blink></td>
     </tr>
     </tbody>
 </table>
@@ -249,7 +255,7 @@ const arr = Array.from(document.querySelectorAll(selector));
         <td>`.replaceWith()` (needs [Polyfill](https://developer.mozilla.org/en-US/docs/Web/API/ChildNode/replaceWith#Polyfill))</td>
     </tr>
     <tr class="fragment">
-        <td colspan="2">.</td>
+        <td colspan="2"><blink>_</blink></td>
     </tr>
     </tbody>
 </table>
@@ -303,7 +309,7 @@ delegate('click', 'a', (e) => {
 ---
 # Event delegation
 
-What to do with events that do not bubble up? 
+What to do with events that do not bubble up? 🤔
 
 ---
 # Event delegation
@@ -323,6 +329,7 @@ delegate('blur', 'input', (e) => {
     console.log(e.target.value);
 });
 ```
+😍
 ---
 # Web Animations API
 
@@ -340,7 +347,7 @@ elem.animate(
   });
 ```
 <div class="fragment">
-<p>Works in Chome and Firefox</p>
+<p>Works in Chrome and Firefox</p>
 
 <p>[Polyfill](https://github.com/web-animations/web-animations-js)</p>
 </div> 
@@ -364,12 +371,11 @@ fetch(url, options).then((response) => {
     <li class="fragment">`.reduce()` (ES5)</li>
     <li class="fragment">`.sort()` (ES5)</li>
     <li class="fragment">`.every()` (ES5)</li>
-    <li class="fragment">`.find()` (ES2015)</li>
-    <li class="fragment">`.findIndex()` (ES2015)</li>
-    <li class="fragment">`.entries()` (ES2015)</li>
-    <li class="fragment">`.values()` (ES2015)</li>
+    <li class="fragment">`.find()` and `.findIndex()` (ES2015)</li>
+    <li class="fragment">`.entries()` and `.values()` (ES2015)</li>
     <li class="fragment">`.includes()` (ES2016)</li>
-    <li class="fragment">.</li>
+    <li class="fragment">` .flatMap()` and `.flatten()` (ES2018?)</li>
+    <li class="fragment"><blink>_</blink></li>
 </ul>
 ---
 # Working with Objects
@@ -379,7 +385,7 @@ fetch(url, options).then((response) => {
     <li class="fragment">`.keys()` (ES2015)</li>
     <li class="fragment">`.entries()` (?)</li>
     <li class="fragment">`.values()` (?)</li>
-    <li class="fragment">.</li>
+    <li class="fragment"><blink>_</blink></li>
 </ul>
 ---
 # Building a slider with CSS Scroll Snap Points 

@@ -2,6 +2,26 @@ body {
 	background: #000;
 }
 
+@keyframes blink {
+	from {
+		opacity: 0;
+	}
+	50% {
+		opacity: 1;
+	}
+	to {
+		opacity: 0;
+	}
+}
+
+blink {
+	animation-name: blink;
+	animation-iteration-count: infinite;
+	animation-fill-mode: both;
+	animation-timing-function: steps(1, start);
+	animation-duration: 1000ms;
+}
+
 .reveal {
 	color: #fff;
 	font-size: 60px;
@@ -133,6 +153,10 @@ body {
 		text-align: left;
 		box-shadow: 0 0 4px rgba(255,255,255,.5);
 
+		&.twitter-tweet {
+			display: none;
+		}
+
 		> *:last-child {
 			margin-bottom: 0;
 		}
@@ -167,7 +191,7 @@ body {
 
 	.slide-background {
 			&:nth-child(3n+1) {
-				background-color: #1f61a8;
+				background-color: #3a6ea6;
 			}
 			&:nth-child(3n+2) {
 				background-color: #088e4c;
@@ -175,5 +199,17 @@ body {
 			&:nth-child(3n+3) {
 				background-color: #9a3e48;
 			}
+	}
+
+	section[data-markdown-parsed] {
+		overflow: visible;
+	}
+
+	.twitter-tweet {
+		width: 1200px;
+		height: 600px !important;
+		max-width: none;
+		max-height: none;
+		margin: 0 auto;
 	}
 }
