@@ -2,6 +2,14 @@
 body {
   background: #000; }
 
+@-webkit-keyframes blink {
+  from {
+    opacity: 0; }
+  50% {
+    opacity: 1; }
+  to {
+    opacity: 0; } }
+
 @keyframes blink {
   from {
     opacity: 0; }
@@ -11,11 +19,16 @@ body {
     opacity: 0; } }
 
 blink {
-  animation-name: blink;
-  animation-iteration-count: infinite;
-  animation-fill-mode: both;
-  animation-timing-function: steps(1, start);
-  animation-duration: 1000ms; }
+  -webkit-animation-name: blink;
+          animation-name: blink;
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
+  -webkit-animation-fill-mode: both;
+          animation-fill-mode: both;
+  -webkit-animation-timing-function: steps(1, start);
+          animation-timing-function: steps(1, start);
+  -webkit-animation-duration: 1000ms;
+          animation-duration: 1000ms; }
 
 .reveal {
   color: #fff;
@@ -39,18 +52,23 @@ blink {
   .reveal pre {
     box-shadow: none; }
   .reveal code {
-    background-color: #3F3F3F; }
+    margin: 0 10px;
+    padding: 0 10px;
+    background-color: #f8f8f8;
+    color: #000; }
   .reveal pre code {
     max-height: 90vh;
     padding: 20px;
-    filter: none;
+    -webkit-filter: none;
+            filter: none;
     text-shadow: none;
     box-shadow: inset 0 0 0 2px #666; }
   html.faded .reveal .backgrounds {
     opacity: 0.5;
     background-blend-mode: multiply; }
   html.grayscaled .reveal .backgrounds {
-    filter: greyscale(1); }
+    -webkit-filter: greyscale(1);
+            filter: greyscale(1); }
   .reveal .right {
     margin-left: 33%; }
   .reveal pre + pre {
@@ -62,7 +80,8 @@ blink {
     box-shadow: none; }
     .reveal section img[src$=".jpg"],
     .reveal section video[src$=".jpg"] {
-      filter: drop-shadow(0 0 1px #CCC) drop-shadow(0 0 10px #FFF); }
+      -webkit-filter: drop-shadow(0 0 1px #CCC) drop-shadow(0 0 10px #FFF);
+              filter: drop-shadow(0 0 1px #CCC) drop-shadow(0 0 10px #FFF); }
   .reveal li {
     margin-bottom: 0.25em; }
   .reveal table {
@@ -105,16 +124,20 @@ blink {
     position: relative;
     margin-bottom: 1rem;
     padding: 1rem 1.5rem;
-    background-color: rgba(0, 0, 0, 0.9);
+    background-color: #f8f8f8;
+    color: #000;
     font-style: italic;
     text-align: left;
     box-shadow: 0 0 4px rgba(255, 255, 255, 0.5); }
     .reveal blockquote.twitter-tweet {
       display: none; }
+    .reveal blockquote p {
+      color: inherit; }
     .reveal blockquote > *:last-child {
       margin-bottom: 0; }
     .reveal blockquote:before, .reveal blockquote:after {
       position: absolute;
+      color: #fff;
       font-family: Times, serif;
       font-size: 150%;
       font-weight: bold; }
@@ -130,7 +153,6 @@ blink {
   .reveal .multicolumn {
     font-size: 0.6em;
     -webkit-column-count: 2;
-    -moz-column-count: 2;
     -ms-column-count: 2;
     -o-column-count: 2;
     column-count: 2; }

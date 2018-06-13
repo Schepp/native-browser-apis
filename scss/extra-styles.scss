@@ -50,7 +50,10 @@ blink {
 	}
 
 	code {
-		background-color: #3F3F3F;
+    margin: 0 10px;
+    padding: 0 10px;
+		background-color: #f8f8f8;
+    color: #000;
 	}
 
 	pre code {
@@ -148,7 +151,8 @@ blink {
 		position: relative;
 		margin-bottom: 1rem;
 		padding: 1rem 1.5rem;
-		background-color: rgba(0,0,0,.9);
+    background-color: #f8f8f8;
+    color: #000;
 		font-style: italic;
 		text-align: left;
 		box-shadow: 0 0 4px rgba(255,255,255,.5);
@@ -157,12 +161,17 @@ blink {
 			display: none;
 		}
 
+    p {
+      color: inherit;
+    }
+
 		> *:last-child {
 			margin-bottom: 0;
 		}
 		&:before,
 		&:after {
 			position: absolute;
+      color: #fff;
 			font-family: Times, serif;
 			font-size: 150%;
 			font-weight: bold;

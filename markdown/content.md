@@ -2,20 +2,25 @@
 
 # The Breakthrough of Native Browser APIs
 ---
-<!-- .slide: data-background="" data-state="inverted" -->
+<!-- .slide: data-background="images/backgrounds/fireworks.gif" data-state="inverted" -->
 
 # Happy [12th birthday, jQuery](https://johnresig.com/blog/10th-anniversary-of-jquery/)!
 ---
 # Why jQuery?
 
 <ul>
-    <li class="fragment">mapped to W3C and IE DOM API<span class="fragment"> (especially event handling)</span></li>
+    <li class="fragment">mapped to W3C and IE DOM API (especially event handling)</li>
     <li class="fragment">fixed (IE 6 & 7) browser bugs</li>
     <li class="fragment">offered unique CSS selector style DOM selection & traversal API (Sizzle)</li>
     <li class="fragment">offered convenient API with [method chaining + method pattern](https://www.smashingmagazine.com/2012/10/designing-javascript-apis-usability/)</li>
     <li class="fragment">offered convenient API for animations</li>
     <li class="fragment"><blink>_</blink></li>
 </ul>
+---
+<!-- .slide: data-background="images/backgrounds/mum-boy.jpg" data-state="inverted faded" -->
+
+<br><br><br><br><br><br>
+# Thank you jQuery for protecting us from the outside world!
 ---
 # The advantages nowadays?
 
@@ -86,13 +91,9 @@
 
 <blockquote class="twitter-tweet" data-lang="de"><p lang="en" dir="ltr">Images account for 63% of page weight (avg 687k) <a href="http://t.co/XPPhGE73">http://t.co/XPPhGE73</a> so: 1) a bit silly to whine over 30k of JS 2) going retina? use vector</p>&mdash; Paul Irish (@paul_irish) <a href="https://twitter.com/paul_irish/status/228815997438672896">27. Juli 2012</a></blockquote>
 ---
-<p>You should</p>
+<p><i>You</i> should!</p>
 
 <blockquote class="twitter-tweet" data-lang="de"><p lang="en" dir="ltr"><a href="https://twitter.com/paul_irish">@paul_irish</a> OTOH, JS blocks rendering, so JS KB &quot;costs&quot; more than img KB in terms of perf</p>&mdash; Yoav Weiss (@yoavweiss) <a href="https://twitter.com/yoavweiss/status/228818180917833729">27. Juli 2012</a></blockquote>
----
-<p>Parse times of 1MB (uncompressed) JavaScript</p>
-
-![Parse times of 1MB JavaScript](images/javascript-parse-times.jpg)
 ---
 <p>Parse times of 1MB (uncompressed) JavaScript</p>
 
@@ -125,9 +126,9 @@ Remember:
 <p class="fragment">= 375 ms parse time on a Motorola Moto G4<p>
 <p class="fragment">~ <a href="http://carlos.bueno.org/2010/02/measuring-javascript-parse-and-load.html#minifi">half the time for the minified version</a><p>
 ---
-<blockquote><p lang="en" dir="ltr">The default global baseline is a ~$200 Android device on a 400Kbps link with a 400ms round-trip-time (“RTT”). This translates into a budget of ~130-170KB of critical-path resources, depending on composition — the more JS you include, the smaller the bundle must be.</p>&mdash; Alex Russell <a href="https://infrequently.org/2017/10/can-you-afford-it-real-world-web-performance-budgets/">22. Oktober 2017</a></blockquote>
+<blockquote><p lang="en" dir="ltr">The default global baseline is a ~$200 Android device on a 400Kbps link with a 400ms round-trip-time (“RTT”).<br><br>This translates into a budget of ~130-170KB of critical-path resources, depending on composition — the more JS you include, the smaller the bundle must be.</p>&mdash; Alex Russell <a href="https://infrequently.org/2017/10/can-you-afford-it-real-world-web-performance-budgets/">22. Oktober 2017</a></blockquote>
 
-<p class="fragment">Dokument + Stylesheet + Schriften + JavaScript <= 130/170 KB</p>
+<p class="fragment">Document + Stylesheets + Fonts + JavaScript <= 130/170 KB</p>
 ---
 Also, native code is always faster than interpreted / just in time compiled code!
 ---
@@ -145,6 +146,11 @@ Also, native code is always faster than interpreted / just in time compiled code
     <li class="fragment"><blink>_</blink></li>
 </ul>
 ---
+<!-- .slide: data-background="images/backgrounds/man.jpg" data-state="inverted faded" -->
+
+<br><br><br><br><br><br>
+# Time to stand on our own feet!
+---
 # DOM Selection and Traversal
 
 querySelector()
@@ -158,14 +164,13 @@ var firstExternalLink = querySelector('a[target="_blank"]');
 querySelectorAll()
 
 ```
-function $(selector, elem) {
-  elem = elem || document;
-  return [].slice.call(elem.querySelectorAll(selector));
+function $(selector, elem = document) {
+  return [...elem.querySelectorAll(selector)];
 }
 
 var links = $('a');
 
-links.forEach(...);
+links.forEach(...); <- yay, forEach on a NodeList
 ```
 ---
 # DOM Selection and Traversal
@@ -326,7 +331,7 @@ const delegate = (eventName, selector, callback) => {
 }
 
 delegate('blur', 'input', (e) => {
-    console.log(e.target.value);
+    console.log(e.target.value); // works!
 });
 ```
 😍
@@ -352,7 +357,7 @@ elem.animate(
 <p>[Polyfill](https://github.com/web-animations/web-animations-js)</p>
 </div> 
 ---
-# Ajax
+# Fetch is the new Ajax
 
 ```
 fetch(url, options).then((response) => {
@@ -374,11 +379,34 @@ fetch(url, options).then((response) => {
     <li class="fragment">`.find()` and `.findIndex()` (ES2015)</li>
     <li class="fragment">`.entries()` and `.values()` (ES2015)</li>
     <li class="fragment">`.includes()` (ES2016)</li>
-    <li class="fragment">` .flatMap()` and `.flatten()` (ES2018?)</li>
+    <li class="fragment">`.flatMap()` and `.flat()` (ES2019?)</li>
     <li class="fragment"><blink>_</blink></li>
 </ul>
 ---
-# Working with Objects
+![mootools logo](images/mootools-logo.png)
+
+As a side note: mootools suck!
+---
+Few examples:
+
+```
+// Check if every array item matches a test
+[1, 2, 3, 4].every(e => e < 5); // -> true
+```
+
+```
+// Find the first array item bigger than 2 and return its value
+[1, 2, 3, 4].find(e => e > 2); // -> 3
+```
+
+```
+// Find the first array item bigger than 2 and return its index
+[1, 2, 3, 4].findIndex(e => e > 2); // -> 2
+```
+
+Copied from Das Surma's [underdash page](https://surma.github.io/underdash/)
+---
+# Elegantly working with Objects
 
 <ul>
     <li class="fragment">`.assign()` (ES2015)</li>
@@ -388,9 +416,38 @@ fetch(url, options).then((response) => {
     <li class="fragment"><blink>_</blink></li>
 </ul>
 ---
+Few examples:
+
+```
+// Get all of an objects (own) keys
+Object.keys({
+  'a': 1,
+  'b': 2,
+  'c': 3,
+}); // -> ['a', 'b', 'c']
+```
+
+```
+// Get all of an objects (own) values
+Object.values({
+  'a': 1,
+  'b': 2,
+  'c': 3,
+}); // -> [1, 2, 3]
+```
+
+```
+// Get all of an objects (own) keys + values
+Object.entries({
+  'a': 1,
+  'b': 2,
+  'c': 3,
+}); // -> [['a', 1], ['b', 2], ['c', 3]]
+```
+---
 # Building a slider with CSS Scroll Snap Points 
 
-<video width=318 height=478 controls autoplay loop style="float: left; margin-right: 40px">
+<video width=318 height=478 controls autoplay muted loop style="float: left; margin-right: 40px">
     <source src="https://yannickweiss.com/post/scroll-snap-iOS/showcase.mp4" type="video/mp4">
 </video>
 
@@ -423,7 +480,9 @@ fetch(url, options).then((response) => {
 }
 ```
 
-![Smooth Scroll Demo](https://res.cloudinary.com/css-tricks/image/upload/c_scale,w_900,f_auto,q_auto/v1492202937/alamanac-css-scroll-behavior-smooth_tenf1s.gif)
+<img src="https://res.cloudinary.com/css-tricks/image/upload/c_scale,w_900,f_auto,q_auto/v1492202937/alamanac-css-scroll-behavior-smooth_tenf1s.gif" width="1600" height="400">
+
+Source: [CSS Tricks](https://css-tricks.com/almanac/properties/s/scroll-behavior/)
 
 <span class="fragment">Works in Firefox, and in Chrome</span> 
 ---
@@ -443,7 +502,7 @@ if (document.fonts) {
 }
 ```
 ---
-# Intersection Observer
+# Lazyloading
 
 Imagine, you want to lazy load images:
 
@@ -455,30 +514,221 @@ Imagine, you want to lazy load images:
      height="300">
 ```
 ---
+# jQuery / traditional JavaScript lazyloaders
+
+A truckload of *scroll events* or *setInterval calls* working in conjunction with `window.innerHeight`, `window.scrollY`, `Element.offsetTop`, `Element.offsetHeight` or `Element.getClientBoundingRect()` to figure out when an element enters the viewport.
+
+<p class="fragment">LAYOUT TRASHING GALORE!</p>
+---
+<!-- .slide: data-background="images/layout-thrashing.png" data-state="inverted" -->
+---
+# Enters: Intersection Observer
+
+<blockquote>The Intersection Observer API provides a way to asynchronously observe changes in the intersection of a target element with an ancestor element or with a top-level document's viewport.</blockquote>
+
+[MDN](https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API)
+
+<p class="fragment"><blink>asynchronous!</blink></p>
+---
+```
+const callback = (entries, observer) => {
+  ...
+});
+
+const iObserver = new IntersectionObserver(callback, { 
+  root: null, // intersection root element (null -> viewport)
+  rootMargin: 0 0 500px 0, // hit area is expanded 500px more to the bottom  
+  threshold: 0.1, // react when intersection ratio surpasses or drops below 0.1 / 10% 
+});
+
+iObserver.observe(document.querySelector('#theone'));
+iObserver.observe(document.querySelector('#theother'));
+```
+---
+```
+const callback = (entries, observer) => {
+  entries.forEach((entry) => {
+    if (entry.isIntersecting) {
+      // we have an intersection!
+      const elem = entry.target;
+      observer.unobserve(elem); // if we want to stop observing the elem 
+    }
+  });
+});
+
+const iObserver = new IntersectionObserver(callback, { 
+  root: null, // intersection root element (null -> viewport)
+  rootMargin: 0 0 500px 0, // hit area is expanded 500px more to the bottom  
+  threshold: 0.1, // react when intersection ratio surpasses or drops below 0.1 / 10% 
+});
+
+iObserver.observe(document.querySelector('#whatever'));
+```
+---
+# jQuery lazyload - but in efficient
 ```
 const $ = selector => [...document.querySelectorAll(selector)]; 
 
 const callback = (entries, observer) => {
     entries.forEach((entry) => {
-        if (entry.intersectionRatio > 0.1) {
+        if (entry.isIntersecting) {
             entry.target.src = entry.target.getAttribute('data-src');
             observer.unobserve(entry.target);
         }
     });
 }
 
-var observer = new IntersectionObserver(callback, { threshold: 0.1 });
+const iObserver = new IntersectionObserver(callback, { threshold: 0.1 });
 
 document.addEventListener('DOMContentLoaded', () => {
-    $('img[data-src]').forEach((elem) => { observer.observe(elem); });
+    $('img[data-src]').forEach((elem) => { iObserver.observe(elem); });
 });
+```
+---
+Oh wait, did I just use  
+`document.addEventListener('DOMContentLoaded')`  
+for real?
+
+<p class="fragment">Sort of like `$(document).ready()`?</p>
+
+<p class="fragment">This is so last decade!</p>
+---
+# Enters: Mutation Observer
+
+<blockquote>The MutationObserver interface provides the ability to watch for changes being made to the DOM tree.</blockquote>
+
+[MDN](https://developer.mozilla.org/en-US/docs/Web/API/MutationObserver)
+---
+```
+const mObserver = new MutationObserver((mutations) => {
+  mutations.forEach((mutation) => {
+    // mutation.addedNodes <- look!
+    // mutation.removedNodes
+    // mutation.attributeName
+    // mutation.oldValue
+  });
+});
+
+mObserver.observe(document.documentElement, {
+  attributes: false,
+  childList: true,
+  characterData: false,
+  subtree: true,
+});
+```
+
+<span class="fragment">Works in Chrome, Firefox, Edge and IE11!</span> 
+---
+Example:
+```
+const mObserver = new MutationObserver((mutations) => {
+  mutations.forEach((mutation) => {
+    const addedNodes = [...mutation.addedNodes];
+    
+    addNodes.filter(node => node.nodeType === 1).forEach((node) => {
+      if (node.matches('img[data-src]') {
+        prepareLazyload(node); // initialize lazyloading
+      }
+      if (node.matches('#whatever') {
+        // do something else
+      }
+    });
+  });
+});
+
+mObserver.observe(document.documentElement, { childList: true, subtree: true });
+```
+---
+# Advantages
+
+<ul>
+  <li class="fragment">You can initialize elements as soon as they drop into the DOM, not just on DOMContentLoaded</li>
+  <li class="fragment">Elements added later to the DOM also get their treatment</li>
+  <li class="fragment">No one forgets to initialize an element</li>
+</ul>
+  
+---
+# Caveats
+
+but...
+---
+Caveat 1: Mutation Observer doesn't register DOM nodes created via `.innerHTML` method. Just the most outer one of the pack. 😫
+---
+Solution: query every new DOM node for children and add them to the list.
+
+```
+const mObserver = new MutationObserver((mutations) => {
+  mutations.forEach((mutation) => {
+    const addedNodes = [...mutation.addedNodes]
+      .filter(node => node.nodeType === 1)
+      .reduce((acc, node) => {
+        return acc.concat([node], [...node.getElementsByTagName('*')]);
+      }, []);
+  });
+});
+mObserver.observe(document.documentElement, { childList: true, subtree: true });
+```
+---
+Use a WeakSet as a "node memory" to make sure you never process any node twice: 
+
+```
+const processedNodes = new WeakMap();
+
+const mObserver = new MutationObserver((mutations) => {
+  mutations.forEach((mutation) => {
+    const addedNodes = [...mutation.addedNodes]
+      .filter(node => node.nodeType === 1)
+      .reduce((acc, node) => {
+        return acc.concat([node], [...node.getElementsByTagName('*')]);
+      }, [])
+      .filter(node => !processedNodes.has(node)) // <- discard already known node
+      .forEach(node => { // <- remember node for the future
+        processedNodes.add(node);
+        return node;
+      });
+  });
+});
+mObserver.observe(document.documentElement, { childList: true, subtree: true });
+```
+---
+Caveat 2: 
+
+<blockquote>An unoptimized MutationObserver callback can add a few seconds to page load time if the page is big and complex</blockquote>
+
+[wOxxOm on Stack Overflow](https://stackoverflow.com/a/39332340)
+---
+Solution: only use Mutation Observer as a trigger together with DOM polling
+
+```
+const processedNodes = new WeakMap();
+const mObserver = new MutationObserver(() => { domChanged = true });
+let domChanged = false;
+
+window.setInterval(() => {
+  if (!domChanged) return;
+  domChanged = false;
+  const addedNodes = [...document.getElementsByTagName('*')]
+    .filter(node => !processedNodes.has(node)) // <- discard already known node
+    .forEach(node => { // <- remember node for the future
+      processedNodes.add(node);
+      return node;
+    });    
+  // do something with the newly added nodes
+}, 250);
+
+mObserver.observe(document.documentElement, { childList: true, subtree: true });
 ```
 ---
 <!-- .slide: data-background="images/backgrounds/8207553734_1cacc702f3_o.jpg" data-state="inverted faded" -->
 
 <br><br><br><br><br><br>
-## Thank you!
-
-* Slides: [http://schepp.github.io/native-browser-apis](http://schepp.github.io/native-browser-apis)
-* Twitter: [@derSchepp](https://twitter.com/derSchepp) (English)
-* Podcast: [Working Draft](http://workingdraft.de) (German)
+<div class="fragment">
+  <h2>Have fun and thank you for listening!</h2>
+  
+  <ul>
+   <li>Slides: [http://schepp.github.io/native-browser-apis](http://schepp.github.io/native-browser-apis)</li>
+   <li>Twitter: [@derSchepp](https://twitter.com/derSchepp) (English)</li>
+   <li>Meetup: [Webworker NRW](http://workingdraft.de) (German)</li>
+   <li>Podcast: [Working Draft](http://workingdraft.de) (German)</li>
+  </ul>
+</div>
