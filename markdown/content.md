@@ -672,7 +672,7 @@ mObserver.observe(document.documentElement, { childList: true, subtree: true });
 Use a WeakSet as a "node memory" to make sure you never process any node twice: 
 
 ```
-const processedNodes = new WeakMap();
+const processedNodes = new WeakSet();
 
 const mObserver = new MutationObserver((mutations) => {
   mutations.forEach((mutation) => {
